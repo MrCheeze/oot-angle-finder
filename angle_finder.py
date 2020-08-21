@@ -37,6 +37,10 @@ MOVEMENT_OPTIONS = {
     "basic": [
         "ess left",
         "ess right",
+        "cup left big",
+        "cup left small",
+        "cup right big",
+        "cup right small"
     ],
     "target enabled": [
         "ess up",
@@ -71,6 +75,10 @@ BASIC_COSTS = {
     "ess up": Decimal(0.75),
     "ess left": Decimal(0.75),
     "ess right": Decimal(0.75),
+    "cup left big": Decimal(0.75),
+    "cup right big": Decimal(0.75),
+    "cup left small": Decimal(0.75),
+    "cup right small": Decimal(0.75),
     "turn left": Decimal(1.0),
     "turn right": Decimal(1.0),
     "turn 180": Decimal(1.0),
@@ -90,6 +98,10 @@ BASIC_COSTS = {
 COST_CHAINS = {
     ("ess left", "ess left"): Decimal(0.075),
     ("ess right", "ess right"): Decimal(0.075),
+    ("cup left big", "cup left big"): Decimal(0.075),
+    ("cup right big", "cup right big"): Decimal(0.075),
+    ("cup left small", "cup left small"): Decimal(0.075),
+    ("cup right small", "cup right small"): Decimal(0.075),
 }
 
 
@@ -389,7 +401,7 @@ def initialize_cost_table():
             del COST_TABLE[first][motion]
 
 
-ALLOWED_GROUPS = ["basic", "no carry", "target enabled", "hammer"]
+ALLOWED_GROUPS = ["basic", "target enabled"]
 
 # ALLOWED_GROUPS = [
 #     "basic",
@@ -411,7 +423,7 @@ if __name__ == "__main__":
 
     # Collect the 5 fastest sequences of the first 50 visited.  The fastest
     # sequence collected is at least tied as the fastest sequence overall.
-    for angle in [0x1702, 0x9999, 0xACAB, 0x1234]:
+    for angle in [0x0840]:
         paths.extend(collect_paths(graph, angle, sample_size=50, number=5))
 
     paths.sort()

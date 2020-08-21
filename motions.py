@@ -90,6 +90,22 @@ def ess_right(angle):
     return angle - 0x0708
 
 
+def cup_left_big(angle):
+    return angle + 0x03C0
+
+
+def cup_right_big(angle):
+    return angle - 0x03C0
+
+
+def cup_left_small(angle):
+    return angle + 0x012C
+
+
+def cup_right_small(angle):
+    return angle - 0x012C
+
+
 def turn_left(angle):
     angle = ess_up_adjust(angle)  # camera auto adjusts similar to ess up
     if not angle:
@@ -189,6 +205,10 @@ table = {
     "ess up": ess_up_adjust,
     "ess left": ess_left,
     "ess right": ess_right,
+    "cup left big": cup_left_big,
+    "cup right big": cup_right_big,
+    "cup left small": cup_left_small,
+    "cup right small": cup_right_small,
     "turn left": turn_left,
     "turn right": turn_right,
     "turn 180": turn_180,
